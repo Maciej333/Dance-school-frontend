@@ -1,0 +1,20 @@
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="handleLogin($event)">
+    <span class="close-x" (click)="hideForm()">X</span>
+    <h2>Login form</h2>
+
+    <label for="load">who to load</label>
+    <span>
+      <input type="radio" name="load" formControlName="load" value="all" placeholder="all" (change)="load('all')"> Wszyscy <br>
+      <input type="radio" name="load" formControlName="load" value="instructors" placeholder="instructors" (change)="load('instructors')"> Instruktorzy
+    </span>
+
+
+    <label for="user">User</label>
+    <select id="user" name="user" formControlName="user">
+      <option *ngFor="let user of users" [value]="user.id"> {{user.firstName}} {{user.lastName}}</option>
+    </select>
+
+    <button type="submit">Prześlij</button>
+  </form>
+</div>

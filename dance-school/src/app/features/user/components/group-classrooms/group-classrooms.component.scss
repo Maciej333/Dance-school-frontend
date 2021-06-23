@@ -1,0 +1,13 @@
+@import "../../../../../assets/styles/colors.scss";
+
+h2 {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $black-color;
+}
+
+div {
+  overflow-x: auto;
+  max-width: 90vw;
+  margin: 0 auto;
+}

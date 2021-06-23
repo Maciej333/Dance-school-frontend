@@ -1,0 +1,34 @@
+<app-user-nav></app-user-nav>
+
+<div class="user-info">
+
+  <p>Dane personalne</p>
+  <div class="columns">
+    <span class="text-right">Imię:</span>
+    <span>{{user.firstName}}</span>
+
+    <span class="text-right">Nazwisko:</span>
+    <span>{{user.lastName}}</span>
+
+    <span class="text-right">Płeć:</span>
+    <span>{{user.gender}}</span>
+
+    <span class="text-right">Kontakt:</span>
+    <div>
+      <span *ngFor=" let contact of user.contacts">{{contact}}</span>
+    </div>
+  </div>
+
+  <p>Dane taneczne</p>
+  <div class="flex">
+    <span *ngFor="let userDanceStyle of user.userDanceStyles">{{userDanceStyle.danceStyleName}}: {{userDanceStyle.danceLevel}}</span>
+  </div>
+
+
+  <p>Uprawnienia użytkownika</p>
+  <div class="flex">
+    <span *ngIf="user.instructor">INSTRUKTOR</span>
+    <span *ngIf="user.student">STUDENT</span>
+  </div>
+
+</div>

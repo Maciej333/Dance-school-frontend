@@ -1,0 +1,11 @@
+<app-user-nav></app-user-nav>
+
+<div *ngIf="userRole == 1">
+  <button class="basic-btn create-btn" (click)="showCreateGroupForm()"> {{ !showCreateForm ? 'Utwórz grupę' : 'Zamknij formularz'}}</button>
+</div>
+
+<app-groups *ngIf="userRole == 1 && !showCreateForm" groupsType="Instructor"></app-groups>
+<app-groups *ngIf="userRole == 0 && !showCreateForm" groupsType="Student"></app-groups>
+
+
+<app-group-create-form *ngIf="showCreateForm" (close)="showCreateGroupForm()"></app-group-create-form>

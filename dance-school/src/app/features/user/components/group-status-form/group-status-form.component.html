@@ -1,0 +1,22 @@
+<h2>Zmień status</h2>
+
+<div>
+  <form *ngIf="message === ''" class="basic-form" [formGroup]="statusForm" (ngSubmit)="handleStatusForm($event)">
+    <span class="error" *ngIf="!status.valid && status.touched">
+      status musi zostać wybrany
+    </span>
+    <label for="status">status*</label>
+    <select name="status" id="status" formControlName="status">
+      <option [value]="statusArray[1]">{{statusArray[1]}}</option>
+      <option [value]="statusArray[2]">{{statusArray[2]}}</option>
+    </select>
+
+    <span></span>
+    <button class="basic-btn" type="submit" [disabled]="!statusForm.valid">Prześlij</button>
+  </form>
+
+  <div *ngIf="message !== ''">
+    <p>{{message}}</p>
+  </div>
+
+</div>

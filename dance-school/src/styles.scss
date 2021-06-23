@@ -1,0 +1,117 @@
+@import "./assets/styles/colors.scss";
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background: url("./assets/images/background.png") center center;
+  background-size: 10%;
+}
+
+.basic-btn {
+  background-color: $basic-color;
+  color: $white-color;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid $black-color;
+  cursor: pointer;
+}
+
+.basic-form {
+  display: grid;
+  margin: 0 10px;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 20px;
+
+  .error {
+    color: red;
+    grid-column: 1/3;
+    text-align: center;
+    width: 100%;
+  }
+
+  label {
+    text-align: right;
+  }
+
+  button {
+    width: 100px;
+    justify-self: flex-end;
+
+    &[disabled] {
+      background-color: transparent;
+      color: $black-color;
+    }
+  }
+}
+
+.basic-table {
+  border-collapse: collapse;
+
+  tr {
+    th,
+    td {
+      padding: 10px 25px;
+      text-align: center;
+    }
+
+    &.first-row {
+      background-color: $basic-color;
+      color: $white-color;
+    }
+    &.odd-row {
+      background-color: #cccccc;
+      color: $black-color;
+    }
+    &.even-row {
+      background-color: #aaaaaa;
+      color: $black-color;
+    }
+  }
+}
+
+.spinner {
+  content: " ";
+  border-top: 2px solid $basic-color;
+  border-bottom: 2px solid $secondary-color;
+  transform: rotate(45%);
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+
+  animation: spinnerrotate 1s linear infinite;
+}
+
+@keyframes spinnerrotate {
+  0% {
+    transform: rotate(0deg);
+    width: 50px;
+    height: 50px;
+  }
+
+  50% {
+    transform: rotate(180deg);
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .basic-form {
+    font-size: 1.35rem;
+
+    .error {
+      font-size: 1.2rem;
+    }
+  }
+}

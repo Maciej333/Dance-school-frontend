@@ -1,0 +1,23 @@
+<h2>Zajęcia</h2>
+
+<div>
+  <table class="basic-table">
+    <tr class="first-row">
+      <th>Nr:</th>
+      <th>Data</th>
+      <th>Godz. rozpoczęcia</th>
+      <th>Godz. zakończenia</th>
+      <th>Czas trwania</th>
+      <th>Sala</th>
+    </tr>
+
+    <tr *ngFor="let classroom of (classrooms | async); let i = index" [ngClass]="{'odd-row': i % 2 === 1, 'even-row': i % 2 === 0}">
+      <td>{{i+1}}</td>
+      <td>{{classroom.date | date: 'd-MM-y'}}</td>
+      <td>{{classroom.startTime}}</td>
+      <td>{{classroom.endTime}}</td>
+      <td>{{classroom.duration}}</td>
+      <td>{{classroom.roomId}}</td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,23 @@
+<div class="dance-style">
+  <div *ngIf="position == 'left'" class="main-image" [style]="{background: danceInfo.imgMain, backgroundSize: 'cover'}" (click)="showImage($event.target.style.background)"></div>
+  <div class="dance-description">
+    <h2>{{danceInfo.name}}</h2>
+    <p>{{danceInfo.description}}</p>
+    <div>
+      <img [src]="danceInfo.img1" alt="img1" (click)="showImage($event.target.src)">
+      <img [src]="danceInfo.img2" alt="img2" (click)="showImage($event.target.src)">
+      <img [src]="danceInfo.img3" alt="img3" (click)="showImage($event.target.src)">
+    </div>
+  </div>
+
+  <div *ngIf="position == 'right'" class="main-image" [style]="{background: danceInfo.imgMain, backgroundSize: 'cover'}"></div>
+</div>
+
+<div *ngIf="imgShow" class="img-show">
+  <img [src]="imgUrls[imgPosition]" alt="show">
+  <div>
+    <button (click)="imgToLeft()"><</button>
+    <button (click)="imgToRight()">></button>
+  </div>
+  <button (click)="closeImgShow()" class="x-btn">X</button>
+</div>

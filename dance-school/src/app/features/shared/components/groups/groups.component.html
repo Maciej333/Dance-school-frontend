@@ -1,0 +1,44 @@
+<div class="groups">
+
+  <div class="form">
+    <button class="basic-btn" (click)="toggleForm()">Filtry</button>
+
+    <form *ngIf="showForm" [formGroup]="filterForm" (ngSubmit)="handleFilterFormSubmit($event)">
+      <h2>Wyszukiwanie</h2>
+      <label for="nazwa">Nazwa</label>
+      <input type="text" id="nazwa" name="nazwa" formControlName="name">
+
+      <label for="styl">Styl</label>
+      <select name="styl" id="styl" formControlName="danceStyle">
+        <option value="all"></option>
+        <option *ngFor="let style of danceStyleArray" value="{{style.nazwa}}">{{style.nazwa}}</option>
+      </select>
+
+      <label for="level">Level</label>
+      <select name="level" id="level" formControlName="danceLevel">
+        <option value="all"></option>
+        <option *ngFor="let level of danceLevelArray" value="{{level}}">{{level}}</option>
+      </select>
+
+      <div>
+        <button type="submit">Prześlij</button>
+        <button (click)="resetForm()">Resetuj</button>
+      </div>
+    </form>
+
+  </div>
+
+  <hr>
+
+  <div class="flex-center" *ngIf="!showSpinner && !showLoadError">
+    <app-group-card *ngFor="let group of filterGroups" [group]="group" [type]="groupsType"></app-group-card>
+  </div>
+  <div class="flex-center" *ngIf="showSpinner && !showLoadError">
+    <div class="spinner"></div>
+  </div>
+  <div class="flex-center" *ngIf="showLoadError" style="color: red; font-size: 1.5rem;">
+    Cannot download groups
+  </div>
+</div>
+
+

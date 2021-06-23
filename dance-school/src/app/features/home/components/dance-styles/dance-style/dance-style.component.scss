@@ -1,0 +1,125 @@
+@import "../../../../../../assets/styles/colors.scss";
+
+div.dance-style {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 10px;
+  justify-content: center;
+
+  div {
+    position: relative;
+
+    &.main-image {
+      display: none;
+    }
+
+    &.dance-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      & h2 {
+        text-transform: uppercase;
+        height: 60px;
+        font-size: 3rem;
+        text-align: center;
+        margin: 20px auto;
+        border-bottom: 1px solid $basic-color;
+      }
+
+      & p {
+        min-height: 140px;
+        text-align: justify;
+        line-height: 1.5;
+        margin-bottom: 25px;
+      }
+
+      & div {
+        width: 100%;
+        height: 180px;
+        display: flex;
+        justify-content: space-around;
+        & img {
+          border-radius: 10px;
+          width: 30%;
+          max-width: 120px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+div.img-show {
+  z-index: 1000;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 70vh;
+    border-radius: 50px;
+    width: auto;
+  }
+
+  div {
+    margin-top: 50px;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button {
+    background-color: $basic-color;
+    color: $secondary-color;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px 10px;
+
+    &.x-btn {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  div.dance-style {
+    grid-template-columns: 1fr 1fr;
+
+    div {
+      &.main-image {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+
+      &.dance-description {
+        div {
+          img {
+            max-width: 200px;
+          }
+        }
+      }
+    }
+  }
+
+  div.img-show {
+    button {
+      &.x-btn {
+        right: 100px;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<div>
+  <h2>{{group.name}}</h2>
+
+  <div class="group-details">
+    <div class="column">
+      <span class="to-right">data utworzenia:</span>
+      <span>{{group.createDate}}</span>
+
+      <span class="to-right">płeć:</span>
+      <span>{{group.gender}}</span>
+
+      <span class="to-right">Instrktorzy:</span>
+      <div class="instructors">
+        <p *ngFor="let user of group.instructors">{{user.firstName}} {{user.lastName}}</p>
+      </div>
+    </div>
+
+    <div class="column">
+      <span class="to-right">rodzaj:</span>
+      <span>{{group.groupType.split(".")[group.groupType.split(".").length - 1]}}</span>
+
+      <span class="to-right">styl tańca:</span>
+      <span>{{group.danceStyleName | uppercase}}</span>
+
+      <span class="to-right">poziom tańca:</span>
+      <span>{{group.danceLevel}}</span>
+
+      <span class="to-right">status:</span>
+      <span>{{group.status}}</span>
+    </div>
+  </div>
+
+</div>

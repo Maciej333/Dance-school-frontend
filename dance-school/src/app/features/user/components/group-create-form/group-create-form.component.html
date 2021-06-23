@@ -1,0 +1,50 @@
+
+<h2>Utwórz grupę</h2>
+<form [formGroup]="newGroup" (ngSubmit)="handleFormSubmit($event)">
+
+  <span class="error" *ngIf="!groupType.valid && groupType.touched">
+    Rodzaj grupy musi zostać wybrany
+  </span>
+  <label for="groupType">Rodzaj *</label>
+  <select name="groupType" id="groupType" formControlName="groupType">
+    <option value="COURSE">kurs</option>
+    <option value="HOREO">horeo</option>
+  </select>
+
+  <span class="error" *ngIf="!gender.valid && gender.touched">
+    Należy wybrać min 1 płeć
+  </span>
+  <label for="gender">Płeć(multi) * </label>
+  <select name="gender" id="gender" formControlName="gender" size="2" multiple="">
+    <option *ngFor="let gender of genderArray" value="{{gender}}">{{gender}}</option>
+  </select>
+
+  <span class="error" *ngIf="!danceStyle.valid && danceStyle.touched">
+    Styl tańca musi zostać wybrany
+  </span>
+  <label for="danceStyle">Styl *</label>
+  <select name="danceStyle" id="danceStyle" formControlName="danceStyle">
+    <option *ngFor="let style of danceStyleArray" value="{{style.nazwa}}">{{style.nazwa}}</option>
+  </select>
+
+  <span class="error" *ngIf="!danceLevel.valid && danceLevel.touched">
+    Poziom musi zostać wybrany
+  </span>
+  <label for="danceLevel">Poziom *</label>
+  <select name="danceLevel" id="danceLevel" formControlName="danceLevel">
+    <option *ngFor="let level of danceLevelArray" value="{{level}}">{{level}}</option>
+  </select>
+
+  <label for="instructors">Instruktorzy(multi) </label>
+  <select name="instructors" id="instructors" formControlName="instructors" size="3" multiple="">
+    <option *ngFor="let instructor of instructorArray" value="{{instructor.id}}">{{instructor.firstName}} {{instructor.lastName}}</option>
+  </select>
+
+  <span class="error" *ngIf="newGroup.errors && name.touched">
+    Należy podać nazwę grupy
+  </span>
+  <label *ngIf="groupType.value == 'HOREO'" for="name">Nazwa *</label>
+  <input *ngIf="groupType.value == 'HOREO'" id="name" name="name" formControlName="name" type="text">
+
+  <button type="submit" class="basic-btn" [disabled]="!newGroup.valid">Prześlij</button>
+</form>

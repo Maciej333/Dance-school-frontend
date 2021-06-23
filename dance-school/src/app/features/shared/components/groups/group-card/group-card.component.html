@@ -1,0 +1,17 @@
+<div class="group-card">
+  <div class="group-dance">
+    <span>styl: {{group.danceStyleName}}</span>
+    <span>poziom: {{group.danceLevel}}</span>
+  </div>
+  <div class="group-name">
+    {{group.name}}
+  </div>
+
+  <button *ngIf="type === 'Instructor' || type === 'Student'" (click)="handelShowGroup()">pokaż szczegóły</button>
+  <button *ngIf="type === 'Open' && userRole === userRoleStudent" (click)="registerStudent()">Zarejestruj</button>
+</div>
+
+<div class="register-message" *ngIf="message !== ''">
+  {{message}}
+  <button (click)="emptyMessage()">close</button>
+</div>

@@ -1,0 +1,71 @@
+@import "../../../../../assets/styles/colors.scss";
+
+.groups {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  gap: 20px;
+  margin: 0 10px;
+
+  div.form {
+    button.basic-btn {
+      margin-left: 10px;
+      width: 100px;
+    }
+    form {
+      border: 1px solid $black-color;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 10px;
+      row-gap: 25px;
+      background-color: $basic-color;
+      color: $white-color;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 10px 0;
+      max-width: 400px;
+
+      & h2 {
+        display: none;
+      }
+
+      & div {
+        grid-column: 2/3;
+        justify-self: flex-end;
+        display: flex;
+        justify-content: space-between;
+        width: 120px;
+      }
+    }
+  }
+
+  & div.flex-center {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .groups {
+    grid-template-columns: 300fr 2fr 1000fr;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    div.form {
+      button.basic-btn {
+        display: none;
+      }
+
+      form {
+        & h2 {
+          display: block;
+          grid-column: 1/3;
+          text-align: center;
+          margin: 10px 0px;
+        }
+      }
+    }
+  }
+}

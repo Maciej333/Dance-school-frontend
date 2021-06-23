@@ -1,0 +1,48 @@
+@import "../../../../assets/styles/colors.scss";
+
+nav {
+  max-width: 1500px;
+  display: flex;
+  justify-content: space-around;
+  background-color: $basic-color;
+  margin: 50px 20px 20px;
+  align-items: center;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid $black-color;
+
+  & a {
+    cursor: pointer;
+    color: $white-color;
+    text-decoration: none;
+    width: 115px;
+    text-align: center;
+    transition: 0.5s all;
+
+    &:hover {
+      text-decoration: underline;
+      transform: scale(1.05);
+    }
+  }
+
+  .user {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  nav {
+    margin: 40px auto;
+
+    .user {
+      position: relative;
+      top: 0px;
+      right: 0px;
+
+      margin-left: auto;
+      margin-right: 50px;
+    }
+  }
+}

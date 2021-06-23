@@ -1,0 +1,20 @@
+<div class="user">
+  <div *ngIf="user != null">
+    <span class="go-to-user" (click)="goToUser()">{{user.firstName}} {{user.lastName}}</span>
+    <i class="go-to-user fas fa-user" (click)="goToUser()"></i>
+    <i class="fas fa-arrow-down" (click)="toggleShowManegement()"></i>
+
+    <div class="manegement-account" *ngIf="showManegement">
+      <p>Log in as {{userRole == 1 ? 'Instructor' : 'Student'}}</p>
+      <button *ngIf="canChangeRole" (click)="switchToOtherRole()">Switch role</button>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div *ngIf="user == null">
+    <span style="cursor: pointer;" (click)="toggleLoginForm()">Login</span>
+    <app-login *ngIf="showLoginForm" (hideEmitter)="toggleLoginForm()"></app-login>
+  </div>
+</div>
+
+

@@ -1,0 +1,71 @@
+@import "../../../../../../assets/styles/colors.scss";
+
+.group-card {
+  margin: 10px;
+  background-color: $basic-color;
+  color: $white-color;
+  width: 285px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid $black-color;
+
+  & .group-dance {
+    display: flex;
+    justify-content: space-between;
+    width: 220px;
+  }
+
+  & .group-name {
+    font-size: 1.55rem;
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  & button {
+    background-color: $white-color;
+    color: $black-color;
+    border-radius: 10px;
+    margin-top: 25px;
+    padding: 5px;
+    border: 1px solid $black-color;
+    cursor: pointer;
+  }
+}
+
+.register-message {
+  position: fixed;
+  top: calc(50% - 100px);
+  left: 8%;
+  width: 80%;
+  height: 120px;
+  border: 2px solid $black-color;
+  background-color: $basic-color;
+  color: $white-color;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: 1.25rem;
+  text-align: center;
+
+  & button {
+    align-self: flex-end;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .register-message {
+    width: 300px;
+    height: 200px;
+    padding: 10px 30px;
+    font-size: 1.5rem;
+    left: calc(50% - 150px);
+  }
+}

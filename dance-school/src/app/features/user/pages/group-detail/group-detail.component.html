@@ -1,0 +1,31 @@
+<app-user-nav></app-user-nav>
+
+<div>
+  <a class="basic-btn" [routerLink]="['/user','groups']">Powróć do grup</a>
+
+  <div class="group-management" *ngIf="group.id !== -1">
+    <app-group-info>
+    </app-group-info>
+
+    <div class="line"> </div>
+
+    <div class="group-management-buttons">
+      <button *ngIf="userRole == 1" class="basic-btn" (click)="showElement('classroomForm')" [ngClass]="{'active': whatToShow === 'classroomForm'}">utwórz zajęcia</button>
+      <button class="basic-btn" (click)="showElement('classrooms')" [ngClass]="{'active': whatToShow === 'classrooms'}">pokaż zajęcia</button>
+      <button class="basic-btn" (click)="showElement('students')" [ngClass]="{'active': whatToShow === 'students'}">pokaż kursantów</button>
+      <button *ngIf="userRole == 1" class="basic-btn" (click)="showElement('statusForm')" [ngClass]="{'active': whatToShow === 'statusForm'}">zmień status</button>
+      <button *ngIf="userRole == 1" class="basic-btn" (click)="showElement('danceLevelForm')" [ngClass]="{'active': whatToShow === 'danceLevelForm'}">aktualizuj poziom</button>
+    </div>
+  </div>
+
+  <div class="group-operation" [ngSwitch]="whatToShow">
+    <app-group-classrooms *ngSwitchCase="'classrooms'" [groupId]="group.id"></app-group-classrooms>
+    <app-group-students *ngSwitchCase="'students'" [group]="group"></app-group-students>
+    <div *ngIf="userRole == 1">
+      <app-group-classroom-form *ngSwitchCase="'classroomForm'" [groupId]="group.id"></app-group-classroom-form>
+      <app-group-status-form *ngSwitchCase="'statusForm'" [groupId]="group.id"></app-group-status-form>
+      <app-group-dance-level-form *ngSwitchCase="'danceLevelForm'" [group]="group"></app-group-dance-level-form>
+    </div>
+  </div>
+
+</div>

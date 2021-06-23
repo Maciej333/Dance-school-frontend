@@ -1,0 +1,44 @@
+@import "../../../../../assets/styles/colors.scss";
+
+div.user {
+  position: relative;
+  background-color: $white-color;
+  padding: 5px 10px;
+  border-radius: 10px;
+
+  .go-to-user {
+    cursor: pointer;
+  }
+
+  & span,
+  i {
+    margin: 0 10px;
+    transition: 0.5s all;
+
+    &.fa-arrow-down:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.manegement-account {
+  z-index: 10000;
+  min-width: 100px;
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  background-color: $basic-color;
+  color: $white-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px 20px;
+  border: 1px solid $black-color;
+  border-radius: 5px;
+
+  button {
+    margin: 5px 10px;
+    height: 25px;
+  }
+}

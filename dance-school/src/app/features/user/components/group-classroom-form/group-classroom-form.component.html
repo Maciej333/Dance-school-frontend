@@ -1,0 +1,39 @@
+<h2>Utwórz zajęcia</h2>
+
+<form *ngIf="message === ''" class="basic-form" [formGroup]="classroomForm" (ngSubmit)="handleClassroomFormSubmit($event)">
+  <span class="error" *ngIf="classroomForm.errors">
+    Sala jest zajęta w wybranym terminie
+  </span>
+  <span class="error" *ngIf="!room.valid && room.touched">
+    sala musi zostać wybrana
+  </span>
+  <label for="room">sala*</label>
+  <select name="room" id="room" formControlName="room">
+    <option *ngFor="let room of (rooms | async)" value={{room.number}}>{{room.number}}</option>
+  </select>
+
+  <span class="error" *ngIf="!date.valid && date.touched">
+    data musi zostać wybrana
+  </span>
+  <label for="date">data*</label>
+  <input type="date" name="date" id="date" formControlName="date">
+
+  <span class="error" *ngIf="!start.valid && start.touched">
+    godzina musi zostać wybrana
+  </span>
+  <label for="start">godz. rozpoczęcia*</label>
+  <input type="time" name="start" id="start" formControlName="start">
+
+  <span class="error" *ngIf="!duration.valid && duration.touched">
+    czas trwania musi być > 0 min
+  </span>
+  <label for="duration">czas trwania*</label>
+  <input type="number" name="duration" id="duration" formControlName="duration">
+
+  <span></span>
+  <button type="submit" class="basic-btn" [disabled]="!classroomForm.valid">Prześlij</button>
+</form>
+
+<div *ngIf="message !== ''">
+  <p>{{message}}</p>
+</div>

@@ -1,0 +1,25 @@
+<h2>Aktualizuj poziom</h2>
+
+<form *ngIf="massage === ''" class="basic-form" style="grid-template-columns: 1fr; padding: 0 auto;" [formGroup]="danceLevelForm" (ngSubmit)="handleDanceLevelForm($event)">
+  <span class="error" *ngIf="!danceLevel.valid && danceLevel.touched">
+    poziom tańca musi zostać wybrany
+  </span>
+
+  <div>
+    <label for="danceLevel">poziom tańca*</label>
+    <select name="danceLevel" id="danceLevel" formControlName="danceLevel">
+      <option *ngFor="let danceLevel of danceLevelArray; let i = index" value="{{danceLevelArray[i]}}">{{danceLevelArray[i]}}</option>
+    </select>
+  </div>
+  <div>
+    <label for="updateStudentsLevel">aktl. poziom kursantów</label>
+    <input type="checkbox" name="updateStudentsLevel" id="updateStudentsLevel" value="updateStudentsLevel" formControlName="updateStudentsLevel">
+  </div>
+
+  <span></span>
+  <button class="basic-btn" type="submit" [disabled]="!danceLevelForm.valid">Prześlij</button>
+</form>
+
+<div *ngIf="massage !== ''">
+  <p>{{massage}}</p>
+</div>

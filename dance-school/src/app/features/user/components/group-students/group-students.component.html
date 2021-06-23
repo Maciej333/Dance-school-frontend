@@ -1,0 +1,21 @@
+<h2>Kursanci</h2>
+
+<div style="overflow-x: auto;">
+  <table class="basic-table">
+    <tr class="first-row">
+      <th>Nr:</th>
+      <th>Imię:</th>
+      <th>Nazwisko:</th>
+      <th>Kontakt:</th>
+      <th>Poziom tańca:</th>
+    </tr>
+
+    <tr *ngFor="let student of (students | async); let i = index" [ngClass]="{'odd-row': i % 2 === 1, 'even-row': i % 2 === 0}">
+      <td>{{i+1}}</td>
+      <td>{{student.firstName}}</td>
+      <td>{{student.lastName}}</td>
+      <td>{{student.contacts[0]}}</td>
+      <td>{{ getUserDanceLevel(student, group.danceStyleName) }}</td>
+    </tr>
+  </table>
+</div>
